@@ -310,7 +310,7 @@ class CAJParser(object):
         caj = open(self.filename, "rb")
         image_list = []
 
-        from pdfwutils import Colorspace, ImageFormat, convert_ImageList
+        from .pdfwutils import Colorspace, ImageFormat, convert_ImageList
         import zlib
 
         for i in range(self.page_num):
@@ -333,7 +333,7 @@ class CAJParser(object):
             else:
                 caj.seek(page_data_offset)
                 output = caj.read(size_of_text_section)
-            from HNParsePage import HNParsePage
+            from .HNParsePage import HNParsePage
             page_style = (next_page_data_offset > page_data_offset)
             page_data = HNParsePage(output, page_style)
 
@@ -376,7 +376,7 @@ class CAJParser(object):
                 image_data = caj.read(size_of_image_data)
                 current_offset = offset_to_image_data + size_of_image_data
                 if (image_type[image_type_enum] == "JBIG"):
-                    from jbigdec import CImage
+                    from .jbigdec import CImage
                     cimage = CImage(image_data)
                     out = cimage.DecodeJbig()
                     # PBM is only padded to 8 rather than 32.
@@ -397,7 +397,7 @@ class CAJParser(object):
                         0
                     )
                 elif (image_type[image_type_enum] == "JBIG2"):
-                    from jbig2dec import CImage
+                    from .jbig2dec import CImage
                     cimage = CImage(image_data)
                     out = cimage.DecodeJbig2()
                     # PBM is only padded to 8 rather than 32.
@@ -493,7 +493,7 @@ class CAJParser(object):
             else:
                 caj.seek(page_data_offset)
                 output = caj.read(size_of_text_section)
-            from HNParsePage import HNParsePage
+            from .HNParsePage import HNParsePage
             page_style = (next_page_data_offset > page_data_offset)
             page_data = HNParsePage(output, page_style)
             print("Text on Page %d:" % (i + 1))
@@ -542,7 +542,7 @@ class CAJParser(object):
                 caj.seek(page_data_offset)
                 output = caj.read(size_of_text_section)
                 print("Page Text Header non-COMPRESSTEXT:\n", self.dump(output, GB=True), sep="")
-            from HNParsePage import HNParsePage
+            from .HNParsePage import HNParsePage
             page_style = (next_page_data_offset > page_data_offset)
             page_data = HNParsePage(output, page_style)
             print("Text:\n", page_data.texts)
@@ -569,13 +569,13 @@ class CAJParser(object):
                     f.write(image_data)
                 if (image_type[image_type_enum] == "JBIG"):
                     try:
-                        from jbigdec import SaveJbigAsBmp
+                        from .jbigdec import SaveJbigAsBmp
                         SaveJbigAsBmp(image_data, size_of_image_data, (image_name + ".bmp").encode('ascii'))
                     except ImportError:
                         pass
                 elif (image_type[image_type_enum] == "JBIG2"):
                     try:
-                        from jbigdec import SaveJbig2AsBmp
+                        from .jbigdec import SaveJbig2AsBmp
                         SaveJbig2AsBmp(image_data, size_of_image_data, (image_name + ".bmp").encode('ascii'))
                     except ImportError:
                         pass
