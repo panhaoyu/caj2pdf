@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 import argparse
-from cajparser import CAJParser
-from utils import add_outlines
+import os
+
+from caj2pdf.cajparser import CAJParser
+from caj2pdf.utils import add_outlines
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -16,7 +17,8 @@ if __name__ == "__main__":
     convert_parser.add_argument("input", help="Path to the CAJ file.")
     convert_parser.add_argument("-o", "--output", help="Output path to the PDF file.", required=False)
 
-    outlines_parser = subparsers.add_parser("outlines", help="Extract outlines from the CAJ file and add it to PDF file.")
+    outlines_parser = subparsers.add_parser("outlines",
+                                            help="Extract outlines from the CAJ file and add it to PDF file.")
     outlines_parser.add_argument("input", help="Path to the CAJ file.")
     outlines_parser.add_argument("-o", "--output", help="Path to the PDF file.", required=True)
 
@@ -45,7 +47,8 @@ if __name__ == "__main__":
         if args.output is None:
             if args.input.endswith(".caj"):
                 args.output = args.input.replace(".caj", ".pdf")
-            elif (len(args.input) > 4 and (args.input[-4] == '.' or args.input[-3] == '.') and not args.input.endswith(".pdf")):
+            elif (len(args.input) > 4 and (args.input[-4] == '.' or args.input[-3] == '.') and not args.input.endswith(
+                    ".pdf")):
                 args.output = os.path.splitext(args.input)[0] + ".pdf"
             else:
                 args.output = args.input + ".pdf"

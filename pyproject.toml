@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "caj2pdf"
+version = "0.1.104"
+description = ""
+authors = [
+    "panhaoyu <panhaoyu.china@outlook.com>",
+    "Li <me@wangjinli.com>"
+]
+readme = "README.md"
+packages = [{ include = "caj2pdf" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[[tool.poetry.source]]
+name = "panhaoyu"
+url = "https://pypi.panhaoyu.com/simple/"
+priority = "default"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
