@@ -6,7 +6,8 @@ import os
 from caj2pdf.cajparser import CAJParser
 from caj2pdf.utils import add_outlines
 
-if __name__ == "__main__":
+
+def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(help="commands", dest="command")
 
@@ -69,3 +70,7 @@ if __name__ == "__main__":
     if args.command == "parse":
         caj = CAJParser(args.input)
         caj.parse()
+
+
+if __name__ == '__main__':
+    main()

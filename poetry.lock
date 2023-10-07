@@ -17,6 +17,22 @@ url = "https://pypi.panhaoyu.com/simple"
 reference = "panhaoyu"
 
 [[package]]
+name = "imagesize"
+version = "1.4.1"
+description = "Getting image size from png/jpeg/jpeg2000/gif file"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+files = [
+    {file = "imagesize-1.4.1-py2.py3-none-any.whl", hash = "sha256:0d8d18d08f840c19d0ee7ca1fd82490fdc3729b7ac93f49870406ddde8ef8d8b"},
+    {file = "imagesize-1.4.1.tar.gz", hash = "sha256:69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.panhaoyu.com/simple"
+reference = "panhaoyu"
+
+[[package]]
 name = "phy-base"
 version = "0.1.104"
 description = ""
@@ -35,7 +51,49 @@ type = "legacy"
 url = "https://pypi.panhaoyu.com/simple"
 reference = "panhaoyu"
 
+[[package]]
+name = "pypdf2"
+version = "3.0.1"
+description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "PyPDF2-3.0.1.tar.gz", hash = "sha256:a74408f69ba6271f71b9352ef4ed03dc53a31aa404d29b5d31f53bfecfee1440"},
+    {file = "pypdf2-3.0.1-py3-none-any.whl", hash = "sha256:d16e4205cfee272fbdc0568b68d82be796540b1537508cef59388f839c191928"},
+]
+
+[package.dependencies]
+typing_extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
+
+[package.extras]
+crypto = ["PyCryptodome"]
+dev = ["black", "flit", "pip-tools", "pre-commit (<2.18.0)", "pytest-cov", "wheel"]
+docs = ["myst_parser", "sphinx", "sphinx_rtd_theme"]
+full = ["Pillow", "PyCryptodome"]
+image = ["Pillow"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.panhaoyu.com/simple"
+reference = "panhaoyu"
+
+[[package]]
+name = "typing-extensions"
+version = "4.7.1"
+description = "Backported and Experimental Type Hints for Python 3.7+"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "typing_extensions-4.7.1-py3-none-any.whl", hash = "sha256:440d5dd3af93b060174bf433bccd69b0babc3b15b1a8dca43789fd7f61514b36"},
+    {file = "typing_extensions-4.7.1.tar.gz", hash = "sha256:b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.panhaoyu.com/simple"
+reference = "panhaoyu"
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "5e66d60c2e995562fe7b2287e875814569ba45c2bd3599245d874f92206d19ac"
+content-hash = "ea22c2bb57baff90a1d483f3d6f1b092d0122459de4ece0dd353466470f77194"
