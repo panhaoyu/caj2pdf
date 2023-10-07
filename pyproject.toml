@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "caj2pdf"
-version = "0.1.106"
+version = "0.0.1"
 description = ""
 authors = [
     "panhaoyu <panhaoyu.china@outlook.com>",
