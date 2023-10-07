@@ -11,6 +11,7 @@ packages = [{ include = "caj2pdf" }]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+phy-base = "^0.1.104"
 
 [[tool.poetry.source]]
 name = "panhaoyu"
